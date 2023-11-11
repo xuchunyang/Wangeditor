@@ -9,12 +9,12 @@
             <div class="wangeditor-wrap" :class="active && 'wangeditor-wrap--active'">
                 <Toolbar
                     class="wangeditor-toolbar"
-                    :editor="editor"
+                    :editor="theEditor"
                     :defaultConfig="toolbarConfig"
                     :mode="wangMode"
                 />
                 <Editor
-                    class="wangeditor-editor"
+                    class="wangeditor-editor wangeditor-user-content"
                     :style="{height}"
                     v-model="value"
                     :defaultConfig="editorConfig"
@@ -40,8 +40,9 @@ export default {
     props: ['resourceName', 'resourceId', 'field'],
 
     data() {
+        this.theEditor = null;
+
         return {
-            editor: null,
             value: '',
             wangMode: 'default',
             toolbarConfig: {},
@@ -73,7 +74,8 @@ export default {
         }
 
         if (!('autoFocus' in this.editorConfig)) {
-            this.editorConfig.autoFocus = false;
+            // NOTE 不知道为什么，不选中编辑器，工具栏就不显示
+            // this.editorConfig.autoFocus = false;
         }
 
         if (this.field.imageUploadUrl) {
@@ -89,8 +91,7 @@ export default {
     },
 
     beforeUnmount() {
-        console.log('beforeUnmount');
-        this.editor?.destroy();
+        this.theEditor?.destroy();
     },
 
     methods: {
@@ -98,20 +99,17 @@ export default {
          * Set the initial, internal value for the field.
          */
         setInitialValue() {
-            console.log('setInitialValue');
             this.value = this.field.value || '';
         },
 
         handleCreated(editor) {
-            console.log('handleCreated');
-            this.editor = editor;
+            this.theEditor = editor;
         },
 
         /**
          * Fill the given FormData object with the field's internal value.
          */
         fill(formData) {
-            console.log('fill');
             formData.append(this.fieldAttribute, this.value || '')
         },
     },

@@ -462,8 +462,8 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [laravel_nova__WEBPACK_IMPORTED_MODULE_1__.FormField, laravel_nova__WEBPACK_IMPORTED_MODULE_1__.HandlesValidationErrors],
   props: ['resourceName', 'resourceId', 'field'],
   data: function data() {
+    this.theEditor = null;
     return {
-      editor: null,
       value: '',
       wangMode: 'default',
       toolbarConfig: {},
@@ -489,7 +489,8 @@ __webpack_require__.r(__webpack_exports__);
       this.editorConfig.placeholder = this.field.placeholder;
     }
     if (!('autoFocus' in this.editorConfig)) {
-      this.editorConfig.autoFocus = false;
+      // NOTE 不知道为什么，不选中编辑器，工具栏就不显示
+      // this.editorConfig.autoFocus = false;
     }
     if (this.field.imageUploadUrl) {
       var _this$editorConfig;
@@ -504,27 +505,23 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   beforeUnmount: function beforeUnmount() {
-    var _this$editor;
-    console.log('beforeUnmount');
-    (_this$editor = this.editor) === null || _this$editor === void 0 || _this$editor.destroy();
+    var _this$theEditor;
+    (_this$theEditor = this.theEditor) === null || _this$theEditor === void 0 || _this$theEditor.destroy();
   },
   methods: {
     /*
      * Set the initial, internal value for the field.
      */
     setInitialValue: function setInitialValue() {
-      console.log('setInitialValue');
       this.value = this.field.value || '';
     },
     handleCreated: function handleCreated(editor) {
-      console.log('handleCreated');
-      this.editor = editor;
+      this.theEditor = editor;
     },
     /**
      * Fill the given FormData object with the field's internal value.
      */
     fill: function fill(formData) {
-      console.log('fill');
       formData.append(this.fieldAttribute, this.value || '');
     }
   }
@@ -607,11 +604,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["wangeditor-wrap", $data.active && 'wangeditor-wrap--active'])
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Toolbar, {
         "class": "wangeditor-toolbar",
-        editor: $data.editor,
+        editor: _ctx.theEditor,
         defaultConfig: $data.toolbarConfig,
         mode: $data.wangMode
       }, null, 8 /* PROPS */, ["editor", "defaultConfig", "mode"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Editor, {
-        "class": "wangeditor-editor",
+        "class": "wangeditor-editor wangeditor-user-content",
         style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
           height: $data.height
         }),

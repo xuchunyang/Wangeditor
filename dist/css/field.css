@@ -1,54 +1,54 @@
 /* Nova Field CSS */
-.wangeditor-editor h1 {
+.wangeditor-user-content h1 {
     font-size: 2em;
 }
 
-.wangeditor-editor h2 {
+.wangeditor-user-content h2 {
     font-size: 1.5em;
 }
 
-.wangeditor-editor h3 {
+.wangeditor-user-content h3 {
     font-size: 1.17em;
 }
 
-.wangeditor-editor h4 {
+.wangeditor-user-content h4 {
     font-size: 1em;
 }
 
-.wangeditor-editor p {
+.wangeditor-user-content p {
     font-size: 1em;
 }
 
-.wangeditor-editor a {
+.wangeditor-user-content a {
     color: blue;
     text-decoration: underline;
 }
 
-.wangeditor-editor ul {
+.wangeditor-user-content ul {
     padding-left: 20px;
     list-style-type: disc;
 }
 
-.wangeditor-editor ol {
+.wangeditor-user-content ol {
     padding-left: 20px;
     list-style-type: decimal;
 }
 
-.wangeditor-editor blockquote {
+.wangeditor-user-content blockquote {
     padding: 0.5em 1em;
     border-left: 3px solid #ccc;
     margin: 0.5em 0;
     background-color: #f9f9f9;
 }
 
-.wangeditor-editor code {
+.wangeditor-user-content code {
     font-family: monospace;
     background-color: #f4f4f4;
     padding: 2px 4px;
     border-radius: 4px;
 }
 
-.wangeditor-editor pre {
+.wangeditor-user-content pre {
     background-color: #f4f4f4;
     padding: 1em;
     overflow-x: auto;
