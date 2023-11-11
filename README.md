@@ -1,4 +1,4 @@
-# A Laravel Nova field for wangEditor
+# Laravel Nova 的 wangEditor 字段
 
 ![](./wangeditor-nova-by-dalle.png)
 
