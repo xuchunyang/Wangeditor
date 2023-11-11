@@ -1,5 +1,7 @@
 # Laravel Nova 的 wangEditor 字段
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/xuchunyang/wangeditor.svg?style=flat-square)](https://packagist.org/packages/xuchunyang/wangeditor)
+
 ![](./wangeditor-nova-by-dalle.png)
 
 ## 介绍
