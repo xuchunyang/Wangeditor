@@ -1,6 +1,6 @@
 {
     "name": "xuchunyang/wangeditor",
-    "description": "A Laravel Nova field.",
+    "description": "A Laravel Nova field for wangEditor.",
     "keywords": [
         "laravel",
         "nova"

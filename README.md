@@ -1,0 +1,1 @@
+# A Laravel Nova field for wangEditor
